@@ -6,11 +6,11 @@ const app = express();
 
 import morgan from "morgan";
 import mongoose from "mongoose";
-import { validateTest } from "./middleware/validationMiddleware.js";
+
 
 // Routers
 import jobRouter from "./routes/jobRouter.js";
-
+import authRouter from "./routes/authRouter.js"
 //Middleware
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 
@@ -24,12 +24,8 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
-app.post("/api/v1/test", validateTest, (req, res) => {
-  const { name } = req.body;
-  res.json({ message: `hello ${name}` });
-});
-
 app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/auth", authRouter)
 
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });
