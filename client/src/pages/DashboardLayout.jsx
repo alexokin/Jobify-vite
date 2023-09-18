@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 export const loader = async () => {
   try {
     const { data } = await customFetch.get("/users/current-user");
-    console.log(data);
     return data;
   } catch (error) {
     return redirect("/");

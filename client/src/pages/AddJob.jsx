@@ -23,7 +23,7 @@ const AddJob = () => {
   const { user } = useOutletContext();
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
-  console.log(user);
+  
   return (
     <Wrapper>
       <Form method="post" className="form">
