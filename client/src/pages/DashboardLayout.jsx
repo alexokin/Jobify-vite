@@ -1,4 +1,4 @@
-import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
+import { Outlet, redirect,  useLoaderData , useNavigate } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Dashboard";
 import { BigSidebar, Navbar, SmallSidebar } from "../components";
 import { createContext, useContext, useState } from "react";
@@ -8,7 +8,8 @@ import { toast } from "react-toastify";
 
 export const loader = async () => {
   try {
-    const { data } = await customFetch("/users/current-user");
+    const { data } = await customFetch.get("/users/current-user");
+    console.log(data);
     return data;
   } catch (error) {
     return redirect("/");
