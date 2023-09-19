@@ -6,6 +6,7 @@ import { checkDefaultTheme } from "../App";
 import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 
+const DashboardContext = createContext();
 export const loader = async () => {
   try {
     const { data } = await customFetch.get("/users/current-user");
@@ -15,7 +16,7 @@ export const loader = async () => {
   }
 };
 
-const DashboardContext = createContext();
+
 
 const DashboardLayout = () => {
   const { user } = useLoaderData();
