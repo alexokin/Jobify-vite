@@ -19,8 +19,6 @@ export const action = async ({ request }) => {
 };
 
 const Register = () => {
-  
-
   return (
     <Wrapper>
       <Form method="post" className="form">
